@@ -400,7 +400,7 @@
 }
 
 .portfolio-content .portfolio-item .portfolio-img .portfolio-img-inner {
-    visibility: hidden;
+    visibility: visible;
     transition: 0.5s;
 }
 

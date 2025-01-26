@@ -1,50 +1,71 @@
-import React from 'react';
-
+import React, { Suspense } from 'react';
 import './styles/styles.css';
 import './styles/bootstrap.min.css';
 
-import Navbar from './components/Navbar';
-import Header from './components/Header';
-import About from './components/About';
-import Education from './components/Education';
-import Experience from './components/Experience';
-import Skills from './components/Skills';
-import Service from './components/Service';
-import Portfolio from './components/Portfolio';
-import Blog from './components/Blog';
-import Testimonial from './components/Testimonial';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+// Lazy load components for better performance
+const Navbar = React.lazy(() => import('./components/Navbar'));
+const Header = React.lazy(() => import('./components/Header'));
+const About = React.lazy(() => import('./components/About'));
+const Education = React.lazy(() => import('./components/Education'));
+const Experience = React.lazy(() => import('./components/Experience'));
+const Skills = React.lazy(() => import('./components/Skills'));
+const Service = React.lazy(() => import('./components/Service'));
+const Portfolio = React.lazy(() => import('./components/Portfolio'));
+const Blog = React.lazy(() => import('./components/Blog'));
+const Testimonial = React.lazy(() => import('./components/Testimonial'));
+const Contact = React.lazy(() => import('./components/Contact'));
+const Footer = React.lazy(() => import('./components/Footer'));
+const LoadingSpinner = React.lazy(() => import('./components/Spinner'));
+const BackToTop = React.lazy(() => import('./components/BackToTop'));
 
-function App() {
+// Main content section
+const MainContent: React.FC = () => (
+  <main>
+    <Header />
+    <About />
+    <Education />
+    <Experience />
+    <Skills />
+  </main>
+);
+
+// Portfolio section
+const PortfolioSection: React.FC = () => (
+  <section>
+    <Service />
+    <Portfolio />
+    <Blog />
+    <Testimonial />
+  </section>
+);
+
+interface AppProps {}
+
+const App: React.FC<AppProps> = () => {
+  const [isLoading, setIsLoading] = React.useState(true);
+
+  React.useEffect(() => {
+    // Simulate initial loading
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
     <div>
-      {/* Spinner Start */}
-      {/* <div id="spinner"
-        className="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-        <div className="spinner-border text-primary" style={{width: '3rem', height: '3rem'}} role="status">
-          <span className="sr-only">Loading...</span>
-        </div>
-      </div> */}
-      {/* Spinner End */}
-
-      <Navbar />
-      <Header />
-      <About />
-      <Education />
-      <Experience />
-      <Skills />
-      <Service />
-      <Portfolio />
-      <Blog />
-      <Testimonial />
-      <Contact />
-      <Footer />
-
-      {/* Back to Top */}
-      <a href="#" className="btn btn-primary btn-lg-square back-to-top"><i className="fa fa-arrow-up"></i></a>
+      {isLoading && <LoadingSpinner />}
+      <Suspense fallback={<LoadingSpinner />}>
+        <Navbar />
+        <MainContent />
+        <PortfolioSection />
+        <Contact />
+        <Footer />
+        <BackToTop />
+      </Suspense>
     </div>
   );
-}
+};
 
 export default App;

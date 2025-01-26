@@ -1,6 +1,9 @@
 import React, { Suspense } from 'react';
+
 import './styles/styles.css';
 import './styles/bootstrap.min.css';
+import 'owl.carousel/dist/assets/owl.carousel.css';
+import 'owl.carousel/dist/assets/owl.theme.default.css';
 
 // Lazy load components for better performance
 const Navbar = React.lazy(() => import('./components/Navbar'));

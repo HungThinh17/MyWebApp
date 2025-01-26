@@ -1,4 +1,5 @@
 import React, { FC, useState } from 'react';
+import OwlCarousel from 'react-owl-carousel';
 
 // Types
 interface Testimonial {
@@ -167,44 +168,24 @@ const TestimonialItem: FC<TestimonialItemProps> = ({
 );
 
 const TestimonialCarousel: FC = () => {
-  const [activeIndex, setActiveIndex] = useState(0);
-
-  const handleNext = () => {
-    setActiveIndex((prev) => 
-      prev === TESTIMONIALS.length - 1 ? 0 : prev + 1
-    );
-  };
-
-  const handlePrev = () => {
-    setActiveIndex((prev) => 
-      prev === 0 ? TESTIMONIALS.length - 1 : prev - 1
-    );
-  };
-
   return (
-    <div className="testimonial-carousel position-relative">
-      {TESTIMONIALS.map((testimonial, index) => (
-        <TestimonialItem 
-          key={testimonial.id}
-          {...testimonial}
-          isActive={index === activeIndex}
-        />
+    <OwlCarousel 
+      className="owl-theme"
+      loop
+      margin={10}
+      nav
+      items={1}
+      dots={false}
+      autoplay
+      autoplayTimeout={5000}
+      autoplayHoverPause
+    >
+      {TESTIMONIALS.map((testimonial) => (
+        <div key={testimonial.id} className="item">
+          <TestimonialItem {...testimonial} />
+        </div>
       ))}
-      <button 
-        className="carousel-control-prev" 
-        onClick={handlePrev}
-        aria-label="Previous testimonial"
-      >
-        <span className="carousel-control-prev-icon" />
-      </button>
-      <button 
-        className="carousel-control-next" 
-        onClick={handleNext}
-        aria-label="Next testimonial"
-      >
-        <span className="carousel-control-next-icon" />
-      </button>
-    </div>
+    </OwlCarousel>
   );
 };
 

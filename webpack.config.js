@@ -44,7 +44,7 @@ module.exports = (env, argv) => {
     devServer: {
       historyApiFallback: true, // Redirect all 404s to index.html
       static: {
-        directory: path.join(__dirname, 'build'),
+        directory: path.join(__dirname, 'dist'),
       },
       port: 8080,
       hot: true,

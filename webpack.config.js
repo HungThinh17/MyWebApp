@@ -29,7 +29,7 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/index.html',
-        filename: isProduction ? '../index.html' : 'index.html',
+        filename: 'index.html',
       }),
       new CopyWebpackPlugin({
         patterns: [

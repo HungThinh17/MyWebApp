@@ -135,6 +135,7 @@
     }
 
     .container-fluid .header-content,
+    .container-fluid .session-header,
     .container-fluid .about-header,
     .container-fluid .education-header,
     .container-fluid .experience-header,
@@ -148,6 +149,7 @@
     }
 
     .container-fluid .header-img,
+    .container-fluid .session-content,
     .container-fluid .about-content,
     .container-fluid .education-content,
     .container-fluid .experience-content,

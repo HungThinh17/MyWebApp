@@ -35,7 +35,6 @@ module.exports = (env, argv) => {
         patterns: [
           { from: 'resources/lib', to: 'lib' },
           { from: 'resources/img', to: 'img' },
-          { from: 'resources/css', to: 'css' },
           { from: 'resources/scss', to: 'scss' },
           { from: 'resources/js', to: 'js' },
           { from: 'manifest.json', to: '' },

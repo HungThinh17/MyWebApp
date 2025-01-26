@@ -1,10 +1,5 @@
 import React from 'react';
-import '../styles/styles.css';
-import '../../resources/lib/animate/animate.min.css';
-import '../../resources/lib/lightbox/css/lightbox.min.css';
-import '../../resources/lib/owlcarousel/assets/owl.carousel.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
+
 
 const Testimonial = () => {
   return (

@@ -1,11 +1,4 @@
 import React from 'react';
-import './styles/styles.css';
-import '../resources/lib/animate/animate.min.css';
-import '../resources/lib/lightbox/css/lightbox.min.css';
-import '../resources/lib/owlcarousel/assets/owl.carousel.min.css';
-import '@fortawesome/fontawesome-free/css/all.min.css';
-import 'bootstrap-icons/font/bootstrap-icons.css';
-
 
 import Navbar from './components/Navbar';
 import Header from './components/Header';
@@ -24,12 +17,12 @@ function App() {
   return (
     <div>
       {/* Spinner Start */}
-      <div id="spinner"
+      {/* <div id="spinner"
         className="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
         <div className="spinner-border text-primary" style={{width: '3rem', height: '3rem'}} role="status">
           <span className="sr-only">Loading...</span>
         </div>
-      </div>
+      </div> */}
       {/* Spinner End */}
 
       <Navbar />

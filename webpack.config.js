@@ -8,6 +8,7 @@ module.exports = (env, argv) => {
     entry: './src/index.tsx',
     output: {
       path: path.resolve(__dirname, 'dist'),
+      publicPath: '/',
       filename: 'bundle.js'
     },
     resolve: {
@@ -29,17 +30,24 @@ module.exports = (env, argv) => {
     plugins: [
       new HtmlWebpackPlugin({
         template: './src/index.html',
-        filename: isProduction ? '../index.html' : 'index.html',
+        filename: 'index.html',
       }),
       new CopyWebpackPlugin({
         patterns: [
-          { from: 'resources/lib', to: 'lib' },
           { from: 'resources/img', to: 'img' },
           { from: 'manifest.json', to: '' },
           { from: 'service_worker.js', to: '' }
         ]
       })
     ],
-    mode: 'development'
+    mode: 'development',
+    devServer: {
+      historyApiFallback: true, // Redirect all 404s to index.html
+      static: {
+        directory: path.join(__dirname, 'build'),
+      },
+      port: 8080,
+      hot: true,
+    }
   }
 };

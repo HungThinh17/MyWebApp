@@ -1,73 +1,64 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import './styles/styles.css';
-import './styles/bootstrap.min.css';
+// Styles imports
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import './styles/styles.css';
+import './styles/bootstrap.min.css';
+import './lib/animate/animate.min.css';
+import './lib/lightbox/css/lightbox.min.css';
 
-// Lazy load components for better performance
-const Navbar = React.lazy(() => import('./components/Navbar'));
-const Header = React.lazy(() => import('./components/Header'));
-const About = React.lazy(() => import('./components/About'));
-const Education = React.lazy(() => import('./components/Education'));
-const Experience = React.lazy(() => import('./components/Experience'));
-const Skills = React.lazy(() => import('./components/Skills'));
-const Service = React.lazy(() => import('./components/Service'));
-const Portfolio = React.lazy(() => import('./components/Portfolio'));
-const Blog = React.lazy(() => import('./components/Blog'));
-const Testimonial = React.lazy(() => import('./components/Testimonial'));
-const Contact = React.lazy(() => import('./components/Contact'));
-const Footer = React.lazy(() => import('./components/Footer'));
-const LoadingSpinner = React.lazy(() => import('./components/Spinner'));
-const BackToTop = React.lazy(() => import('./components/BackToTop'));
+// Third-party libraries
+import $ from 'jquery';
+import 'bootstrap/dist/js/bootstrap.bundle.min.js';
 
-// Main content section
-const MainContent: React.FC = () => (
-  <main>
-    <Header />
-    <About />
-    <Education />
-    <Experience />
-    <Skills />
-  </main>
-);
+// Local libraries
+import './lib/wow/wow.min.js';
+import './lib/easing/easing.min.js';
+import './lib/waypoints/waypoints.min.js';
+import './lib/counterup/counterup.min.js';
+import './lib/lightbox/js/lightbox.min.js';
 
-// Portfolio section
-const PortfolioSection: React.FC = () => (
-  <section>
-    <Service />
-    <Portfolio />
-    <Blog />
-    <Testimonial />
-  </section>
-);
+// Local imports
+import components from './components';
+import { routes, PageContent } from './routes';
 
-interface AppProps {}
+const App: React.FC = () => {
+  const [isLoading, setIsLoading] = useState(true);
 
-const App: React.FC<AppProps> = () => {
-  const [isLoading, setIsLoading] = React.useState(true);
-
-  React.useEffect(() => {
-    // Simulate initial loading
-    const timer = setTimeout(() => {
+  useEffect(() => {
+    // Initialize jQuery-based functionality
+    $(document).ready(() => {
+      // Add any jQuery initializations here
       setIsLoading(false);
-    }, 1000);
+    });
 
-    return () => clearTimeout(timer);
+    return () => {
+      // Cleanup if needed
+    };
   }, []);
 
+  if (isLoading) {
+    return <components.LoadingSpinner />;
+  }
+
   return (
-    <div>
-      {isLoading && <LoadingSpinner />}
-      <Suspense fallback={<LoadingSpinner />}>
-        <Navbar />
-        <MainContent />
-        <PortfolioSection />
-        <Contact />
-        <Footer />
-        <BackToTop />
-      </Suspense>
-    </div>
+    <Router>
+      <div>
+        <Suspense fallback={<components.LoadingSpinner />}>
+          <components.Navbar />
+          <Routes>
+            <Route path="/" element={<PageContent />} />
+            {routes.map(({ path, Component }) => (
+              <Route key={path} path={path} element={<Component />} />
+            ))}
+          </Routes>
+          <components.Footer />
+          <components.BackToTop />
+        </Suspense>
+      </div>
+    </Router>
   );
 };
 

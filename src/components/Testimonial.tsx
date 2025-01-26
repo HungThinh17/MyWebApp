@@ -25,7 +25,7 @@ const TESTIMONIALS: Testimonial[] = [
     position: 'Lecturer',
     company: 'Electronics and Telecommunications Department - Can Tho University',
     testimonial: 'Nguyễn Phùng Hưng is a dedicated and skilled software engineer with a strong foundation in both software and hardware development.',
-    imagePath: 'img/testimonial-img-1.jpg',
+    imagePath: '/img/testimonial-img-1.jpg',
     rating: 5,
     delay: '0.1s'
   },
@@ -35,7 +35,7 @@ const TESTIMONIALS: Testimonial[] = [
     position: 'Manager',
     company: 'T.E.A Solutions Joint Stock Company',
     testimonial: 'Nguyễn Phùng Hưng\'s expertise in embedded systems and his ability to develop innovative solutions have been invaluable to our projects.',
-    imagePath: 'img/testimonial-img-2.jpg',
+    imagePath: '/img/testimonial-img-2.jpg',
     rating: 5,
     delay: '0.3s'
   },
@@ -45,7 +45,7 @@ const TESTIMONIALS: Testimonial[] = [
     position: 'Project Leader',
     company: 'TNHH Datalogic Vietnam',
     testimonial: 'Nguyễn Phùng Hưng\'s contributions to our barcode scanner product have been significant, and his technical skills are exceptional.',
-    imagePath: 'img/testimonial-img-3.jpg',
+    imagePath: '/img/testimonial-img-3.jpg',
     rating: 5,
     delay: '0.5s'
   },
@@ -55,7 +55,7 @@ const TESTIMONIALS: Testimonial[] = [
     position: 'Project Leader',
     company: 'Sioux Technologies Asia',
     testimonial: 'Nguyễn Phùng Hưng\'s work in data analytics and automation testing has greatly improved our project outcomes.',
-    imagePath: 'img/testimonial-img-4.jpg',
+    imagePath: '/img/testimonial-img-4.jpg',
     rating: 5,
     delay: '0.7s'
   }

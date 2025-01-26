@@ -108,7 +108,7 @@ const ProfileImage: FC = () => (
   <div className="col-xl-5">
     <div className="about-img bg-light p-4 wow fadeInUp" data-wow-delay="0.1s">
       <img 
-        src="img/about.jpg" 
+        src="/img/about.jpg" 
         className="img-fluid w-100" 
         alt="Profile" 
         loading="lazy"

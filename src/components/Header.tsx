@@ -147,7 +147,7 @@ const ProfileImage: FC = () => (
       style={{ borderRadius: '68% 32% 100% 0% / 0% 75% 25% 100%' }}
     >
       <img 
-        src="img/header-img.jpg" 
+        src="/img/header-img.jpg" 
         className="img-fluid w-100"
         style={{ borderRadius: '68% 32% 100% 0% / 0% 75% 25% 100%' }} 
         alt="Profile" 

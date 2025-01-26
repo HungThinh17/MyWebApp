@@ -16,7 +16,7 @@ interface BlogPost {
 const BLOG_POSTS: BlogPost[] = [
   {
     id: 1,
-    image: 'img/blog-1.jpg',
+    image: '/img/blog-1.jpg',
     date: 'January 12, 2025',
     title: 'Secrets of the Mobile Application',
     author: 'Nguyễn Phùng Hưng',
@@ -25,7 +25,7 @@ const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 2,
-    image: 'img/blog-2.jpg',
+    image: '/img/blog-2.jpg',
     date: 'January 18, 2025',
     title: 'How to Create Quality Figma Design',
     author: 'Nguyễn Phùng Hưng',
@@ -34,7 +34,7 @@ const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 3,
-    image: 'img/blog-3.jpg',
+    image: '/img/blog-3.jpg',
     date: 'January 23, 2025',
     title: 'Tutorials for Learning Development',
     author: 'Nguyễn Phùng Hưng',
@@ -43,7 +43,7 @@ const BLOG_POSTS: BlogPost[] = [
   },
   {
     id: 4,
-    image: 'img/blog-4.jpg',
+    image: '/img/blog-4.jpg',
     date: 'January 26, 2025',
     title: 'Tutorials for Learning Development',
     author: 'Nguyễn Phùng Hưng',

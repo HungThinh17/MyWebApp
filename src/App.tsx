@@ -1,25 +1,35 @@
-import React, { Suspense } from 'react';
+import React, { Suspense, lazy } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import './styles/styles.css';
-import './styles/bootstrap.min.css';
 import 'owl.carousel/dist/assets/owl.carousel.css';
 import 'owl.carousel/dist/assets/owl.theme.default.css';
+import './styles/styles.css';
+import './styles/bootstrap.min.css';
+import './lib/animate/animate.min.css';
+import './lib/lightbox/css/lightbox.min.css';
+
+import './lib/wow/wow.min.js';
+import './lib/easing/easing.min.js';
+import './lib/waypoints/waypoints.min.js';
+import './lib/counterup/counterup.min.js';
+import './lib/lightbox/js/lightbox.min.js';
 
 // Lazy load components for better performance
-const Navbar = React.lazy(() => import('./components/Navbar'));
-const Header = React.lazy(() => import('./components/Header'));
-const About = React.lazy(() => import('./components/About'));
-const Education = React.lazy(() => import('./components/Education'));
-const Experience = React.lazy(() => import('./components/Experience'));
-const Skills = React.lazy(() => import('./components/Skills'));
-const Service = React.lazy(() => import('./components/Service'));
-const Portfolio = React.lazy(() => import('./components/Portfolio'));
-const Blog = React.lazy(() => import('./components/Blog'));
-const Testimonial = React.lazy(() => import('./components/Testimonial'));
-const Contact = React.lazy(() => import('./components/Contact'));
-const Footer = React.lazy(() => import('./components/Footer'));
-const LoadingSpinner = React.lazy(() => import('./components/Spinner'));
-const BackToTop = React.lazy(() => import('./components/BackToTop'));
+const Navbar = lazy(() => import('./components/Navbar'));
+const Header = lazy(() => import('./components/Header'));
+const About = lazy(() => import('./components/About'));
+const Education = lazy(() => import('./components/Education'));
+const Experience = lazy(() => import('./components/Experience'));
+const Skills = lazy(() => import('./components/Skills'));
+const Service = lazy(() => import('./components/Service'));
+const Portfolio = lazy(() => import('./components/Portfolio'));
+const Blog = lazy(() => import('./components/Blog'));
+const Testimonial = lazy(() => import('./components/Testimonial'));
+const Contact = lazy(() => import('./components/Contact'));
+const Footer = lazy(() => import('./components/Footer'));
+const LoadingSpinner = lazy(() => import('./components/Spinner'));
+const BackToTop = lazy(() => import('./components/BackToTop'));
+
 
 // Main content section
 const MainContent: React.FC = () => (
@@ -57,17 +67,31 @@ const App: React.FC<AppProps> = () => {
   }, []);
 
   return (
-    <div>
-      {isLoading && <LoadingSpinner />}
-      <Suspense fallback={<LoadingSpinner />}>
-        <Navbar />
-        <MainContent />
-        <PortfolioSection />
-        <Contact />
-        <Footer />
-        <BackToTop />
-      </Suspense>
-    </div>
+    <Router>
+      <div>
+        {isLoading && <LoadingSpinner />}
+        <Suspense fallback={<LoadingSpinner />}>
+          <Navbar />
+          <Routes>
+            <Route path="/" element={<MainContent />}>
+              <Route path="/about" element={<About />} />
+              <Route path="/education" element={<Education />} />
+              <Route path="/experience" element={<Experience />} />
+              <Route path="/skills" element={<Skills />} />
+            </Route>
+            <Route path="/portfolio" element={<PortfolioSection />}>
+              <Route path="service" element={<Service />} />
+              <Route path="portfolio-items" element={<Portfolio />} />
+              <Route path="blog" element={<Blog />} />
+              <Route path="testimonial" element={<Testimonial />} />
+            </Route>
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
+          <Footer />
+          <BackToTop />
+        </Suspense>
+      </div>
+    </Router>
   );
 };
 

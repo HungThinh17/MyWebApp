@@ -19,21 +19,21 @@ const PORTFOLIO_ITEMS: PortfolioItem[] = [
     id: 'portfolio-1',
     category: 'Software Development',
     title: 'SaaS Product for User Data Management',
-    imagePath: 'img/Portfolio-1.jpg',
+    imagePath: '/img/Portfolio-1.jpg',
     delay: '0.1s'
   },
   {
     id: 'portfolio-2',
     category: 'Embedded Systems',
     title: 'Barcode Scanner Product Development',
-    imagePath: 'img/portfolio-2.jpg',
+    imagePath: '/img/portfolio-2.jpg',
     delay: '0.3s'
   },
   {
     id: 'portfolio-3',
     category: 'Android Development',
     title: 'Automotive Infotainment System',
-    imagePath: 'img/portfolio-3.jpg',
+    imagePath: '/img/portfolio-3.jpg',
     delay: '0.5s'
   }
 ];

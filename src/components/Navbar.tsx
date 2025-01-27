@@ -67,9 +67,13 @@ const NavLink: FC<NavLinkProps> = ({
     className={`nav-item nav-link ${isActive ? 'active' : ''}`}
     onClick={(e) => {
       e.preventDefault();
-      onClick?.(id);
-      const element = document.querySelector(href);
-      element?.scrollIntoView({ behavior: 'smooth' });
+      if (id === 'home') {
+        window.location.href = '/';
+      } else {
+        onClick?.(id);
+        const element = document.querySelector(href);
+        element?.scrollIntoView({ behavior: 'smooth' });
+      }
     }}
     aria-current={isActive ? 'page' : undefined}
   >

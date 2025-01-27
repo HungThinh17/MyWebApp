@@ -1,0 +1,50 @@
+[
+    {
+        "id": 1,
+        "image": "/blogs/img/blog-1.jpg",
+        "date": "January 12, 2025",
+        "title": "Guide to Basic and Advanced Functions with Napkin AI",
+        "author": "Hung Nguyen",
+        "category": "Technology",
+        "content": "This document serves as a comprehensive guide to utilizing Napkin AI, covering both basic and advanced functionalities.",
+        "contentType": "pdf",
+        "pdfUrl": "/blogs/Guide to Basic and Advanced Functions with Napkin AI.pdf",
+        "delay": "0.1s"
+    },
+    {
+        "id": 2,
+        "image": "/blogs/img/blog-2.jpg",
+        "date": "January 18, 2025",
+        "title": "My Life - My Game - My Way",
+        "author": "Hung Nguyen",
+        "category": "Lifestyle",
+        "content": "Absolutely! Let’s synthesize the insights and paradoxes into a refined vision for your project,",
+        "contentType": "pdf",
+        "pdfUrl": "/blogs/My Life - My Game - My Way.pdf",
+        "delay": "0.3s"
+    },
+    {
+        "id": 3,
+        "image": "/blogs/img/blog-3.jpg",
+        "date": "January 23, 2025",
+        "title": "Understanding Paradoxes, Conflicts, and Arguments_ A Journey Through Ideas and Experiences",
+        "author": "Hung Nguyen",
+        "category": "Lifestyle",
+        "content": "Life is full of challenges that make us pause and reflect. Among them are paradoxes, conflicts,",
+        "contentType": "pdf",
+        "pdfUrl": "/blogs/Understanding Paradoxes, Conflicts, and Arguments_ A Journey Through Ideas and Experiences.pdf",
+        "delay": "0.5s"
+    },
+    {
+        "id": 4,
+        "image": "/blogs/img/blog-4.jpg",
+        "date": "January 26, 2025",
+        "title": "Understanding REST API for Web Applications",
+        "author": "Hung Nguyen",
+        "category": "Technology",
+        "content": "This document provides a comprehensive overview of REST APIs, focusing on their role in",
+        "contentType": "pdf",
+        "pdfUrl": "/blogs/Understanding REST API for Web Applications.pdf",
+        "delay": "0.9s"
+    }
+]

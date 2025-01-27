@@ -35,6 +35,7 @@ module.exports = (env, argv) => {
       new CopyWebpackPlugin({
         patterns: [
           { from: 'resources/img', to: 'img' },
+          { from: 'resources/blogs', to: 'blogs' },
           { from: 'manifest.json', to: '' },
           { from: 'service_worker.js', to: '' }
         ]

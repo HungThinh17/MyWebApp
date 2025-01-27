@@ -1,57 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { FC } from 'react';
+import type { BlogPost } from '../blogs';
+import { blogPosts } from '../blogs';
 
-// Types
-interface BlogPost {
-  id: number;
-  image: string;
-  date: string;
-  title: string;
-  author: string;
-  category: string;
-  delay: string;
-}
 
-// Constants
-const BLOG_POSTS: BlogPost[] = [
-  {
-    id: 1,
-    image: '/img/blog-1.jpg',
-    date: 'January 12, 2025',
-    title: 'Secrets of the Mobile Application',
-    author: 'Nguyễn Phùng Hưng',
-    category: 'Technology',
-    delay: '0.1s'
-  },
-  {
-    id: 2,
-    image: '/img/blog-2.jpg',
-    date: 'January 18, 2025',
-    title: 'How to Create Quality Figma Design',
-    author: 'Nguyễn Phùng Hưng',
-    category: 'Design',
-    delay: '0.3s'
-  },
-  {
-    id: 3,
-    image: '/img/blog-3.jpg',
-    date: 'January 23, 2025',
-    title: 'Tutorials for Learning Development',
-    author: 'Nguyễn Phùng Hưng',
-    category: 'Lifestyle',
-    delay: '0.5s'
-  },
-  {
-    id: 4,
-    image: '/img/blog-4.jpg',
-    date: 'January 26, 2025',
-    title: 'Tutorials for Learning Development',
-    author: 'Nguyễn Phùng Hưng',
-    category: 'Design',
-    delay: '0.7s'
-  }
-];
 
 // Component for the header section
 const BlogHeader: FC = () => (
@@ -140,7 +93,7 @@ const Blog: FC = () => {
           <div className="col-12 col-lg-9">
             <div className="blog-content h-100 pt-6 ps-6 pb-6">
               <div className="row g-4">
-                {BLOG_POSTS.map(post => (
+                {blogPosts.map(post => (
                   <BlogPost key={post.id} post={post} />
                 ))}
                 <ViewMoreSection />

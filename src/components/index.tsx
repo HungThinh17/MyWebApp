@@ -15,6 +15,7 @@ const components = {
   Footer: lazy(() => import('./Footer')),
   LoadingSpinner: lazy(() => import('./Spinner')),
   BackToTop: lazy(() => import('./BackToTop')),
+  BlogDetails: lazy(() => import('./BlogDetails')),
 };
 
 export default components;

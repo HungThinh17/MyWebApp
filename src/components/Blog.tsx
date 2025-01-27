@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import { FC } from 'react';
 
 // Types
@@ -92,9 +93,9 @@ const BlogContent: FC<{ post: BlogPost }> = ({ post }) => (
         <i className="fa fa-calendar-alt me-2"></i>
         {post.date}
       </p>
-      <a href="#" className="d-inline-block h4 mb-4">
+      <Link to={`/blog/${post.id}`} className="d-inline-block h4 mb-4">
         {post.title}
-      </a>
+      </Link>
       <div className="py-2 px-3 bg-light d-flex justify-content-between">
         <p className="mb-0 text-body">
           By <a href="#" className="h6">{post.author}</a>

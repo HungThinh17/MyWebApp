@@ -23,6 +23,7 @@ import './lib/lightbox/js/lightbox.min.js';
 // Local imports
 import components from './components';
 import { routes, PageContent } from './routes';
+import RouteHeader from './components/RouteHeader';
 
 const App: React.FC = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -51,8 +52,9 @@ const App: React.FC = () => {
           <Routes>
             <Route path="/" element={<PageContent />} />
             {routes.map(({ path, Component }) => (
-              <Route key={path} path={path} element={<Component />} />
+              <Route key={path} path={path} element={<RouteHeader><Component /></RouteHeader>} />
             ))}
+            <Route path="/blog/:id" element={<components.BlogDetails />} />
           </Routes>
           <components.Footer />
           <components.BackToTop />

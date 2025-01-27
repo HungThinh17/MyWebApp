@@ -7,14 +7,24 @@ export type BlogPost = {
     author: string;
     category: string;
     content: string;
+    pdfUrl?: string; // Optional PDF URL
+    contentType?: 'text' | 'pdf'; // Specify content type
     delay?: string;
 };
 
-// Import and export the data
-import blogPostsData from './blogPosts.json';
+let blogPostsData: BlogPost[] = [];
 
-export const blogPosts = blogPostsData as BlogPost[];
+export const blogPosts = async () => {
+    try {
+        const response = await fetch('/blogs/blogPosts.json');
+        blogPostsData = await response.json();
+        return blogPostsData;
+    } catch (error) {
+        console.error('Error loading blog posts:', error);
+        return [];
+    }
+};
 
 export const getBlogPost = (id: number): BlogPost | undefined => {
-    return blogPosts.find(post => post.id === id);
+    return blogPostsData.find(post => post.id === id);
 };
